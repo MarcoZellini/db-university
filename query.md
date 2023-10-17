@@ -14,7 +14,8 @@
 
 ## Query 3
 
-- SELECT * FROM `students` WHERE (YEAR(NOW()) - YEAR(`date_of_birth`)) > 30;
+- SELECT * FROM `students` WHERE (YEAR(NOW()) - YEAR(`date_of_birth`)) > 30;                 (*`Sbagliata perche' non tiene conto dei giorni ma solo degli anni`*).
+- SELECT * FROM students WHERE DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(),`date_of_birth`)), '%Y') >= 30
 - Risultati: 3501
 
 ## Query 4
@@ -23,7 +24,7 @@
 - Risultati: 286
 
 ## Query 5
-- SELECT * FROM `exams` WHERE `hour` > "14:00:00" AND `date` = '2020-06-20';
+- SELECT * FROM `exams` WHERE `hour` >= "14:00:00" AND `date` = '2020-06-20';
 - Risultati: 21
 
 ## Query 6
